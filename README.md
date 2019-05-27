@@ -2,8 +2,8 @@ Test VIRTUO
 
 
 To start the project
-````
-npm start
+```
+  npm start
 ```
 
 To test 
