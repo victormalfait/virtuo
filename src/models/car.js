@@ -9,6 +9,7 @@ class Car
         unique: true,
         minlength: 3
       },
+      available: Boolean
     });
     this.stationModel = model("Car", carSchema);
   }
