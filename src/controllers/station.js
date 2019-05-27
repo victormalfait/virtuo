@@ -50,7 +50,11 @@ class StationController {
   }
 
   deleteStation(req, res, next) {
-
+    StationModel.delete(req.params.idStation).then(() => {
+      res.status(204)
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
   }
 }
 

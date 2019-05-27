@@ -4,7 +4,8 @@
   "description": "Test pour VIRTUO",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha src/",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,10 @@
   "homepage": "https://github.com/victormalfait/virtuo#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
+    "mocha": "^6.1.4",
     "mongoose": "^5.5.11"
   }
 }

@@ -66,6 +66,15 @@ class Station
         })
     });
   }
+
+  remove() {
+    return new Promise((resolve, reject) => {
+      this.stationModel.remove({}, err => {
+        if (err) reject(err);
+        return resolve();
+      })
+    });
+  }
 }
 
 module.exports = new Station();

@@ -51,7 +51,11 @@ class CarController {
   }
 
   deleteCar(req, res, next) {
-
+    CarModel.delete(req.params.idCar).then(() => {
+      res.status(204)
+    }).catch((err) => {
+      res.status(500).json(err);
+    });
   };
 }
 

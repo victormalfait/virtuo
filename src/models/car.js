@@ -12,11 +12,11 @@ class Car
       },
       available: Boolean
     });
-    this.stationModel = model("Car", carSchema);
+    this.carModel = model("Car", carSchema);
   }
 
   add({name, available}) {
-    const car = new this.stationModel({
+    const car = new this.carModel({
       name: name,
       available: available
     });
@@ -30,7 +30,7 @@ class Car
 
   findById(idCar) {
     return new Promise((resolve, reject) => {
-      return this.stationModel.findById(idCar, (err, car) => {
+      return this.carModel.findById(idCar, (err, car) => {
         if (err) reject(err);
         return resolve(car);
       });
@@ -39,7 +39,7 @@ class Car
 
   findAll() {
     return new Promise((resolve, reject) => {
-      return this.stationModel.find({}, (err, cars) => {
+      return this.carModel.find({}, (err, cars) => {
         if (err) reject(err);
         return resolve(cars);
       });
@@ -48,7 +48,7 @@ class Car
 
   update({id, name, available}) {
     return new Promise((resolve, reject) => {
-      return this.stationModel.findOneAndUpdate(
+      return this.carModel.findOneAndUpdate(
         {_id: id},
         {$set: {name: name, available: available}},
         {new: true},
@@ -61,10 +61,19 @@ class Car
 
   delete(idCar) {
     return new Promise((resolve, reject) => {
-        this.stattionModel.deleteOne({id: idCar}, (err) => {
+        this.carModel.deleteOne({id: idCar}, (err) => {
           if (err) reject(err);
           return resolve();
         })
+    });
+  }
+
+  remove() {
+    return new Promise((resolve, reject) => {
+      this.carModel.remove({}, err => {
+        if (err) reject(err);
+        return resolve();
+      })
     });
   }
 }
